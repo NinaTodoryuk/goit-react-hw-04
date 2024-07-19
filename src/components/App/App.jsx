@@ -61,8 +61,7 @@ export default function App() {
   };
 
   const closeModal = () => {
-    console.log("Closing modal");
-    setSelectedImage(null);
+       setSelectedImage(null);
   };
 
   return (

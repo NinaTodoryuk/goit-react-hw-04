@@ -1,22 +1,10 @@
 import ReactModal from "react-modal";
 import css from './ImageModal.module.css'
-import { useEffect } from "react";
+
+ReactModal.setAppElement("#root");
 
 export default function ImageModal({ isOpen, onRequestClose, image }) {
-  useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.key === "Escape") {
-        onRequestClose();
-      }
-    };
-
-    window.addEventListener("keydown", handleEsc);
-    return () => {
-      window.removeEventListener("keydown", handleEsc);
-    };
-  }, [onRequestClose]);
-
-  const handleOverlayClick = (event) => {
+   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
       onRequestClose();
     }
@@ -32,7 +20,7 @@ export default function ImageModal({ isOpen, onRequestClose, image }) {
       onRequestClose={onRequestClose}
       className={css.modal}
       overlayClassName={css.overlay}
-      shouldCloseOnOverlayClick={true}
+      shouldCloseOnEsc={true}
     >
       <div className={css.content} onClick={handleOverlayClick}>
         <img src={image.url} alt={image.description} className={css.image} />
