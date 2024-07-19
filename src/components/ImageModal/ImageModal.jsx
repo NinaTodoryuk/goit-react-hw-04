@@ -22,6 +22,10 @@ export default function ImageModal({ isOpen, onRequestClose, image }) {
     }
   };
 
+  if (!image) {
+    return null; 
+  }
+
   return (
     <ReactModal
       isOpen={isOpen}
@@ -41,12 +45,3 @@ export default function ImageModal({ isOpen, onRequestClose, image }) {
     </ReactModal>
   );
 }
-
-
-
-
-
-
-
-
-

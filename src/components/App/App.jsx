@@ -61,6 +61,7 @@ export default function App() {
   };
 
   const closeModal = () => {
+    console.log("Closing modal");
     setSelectedImage(null);
   };
 
@@ -79,7 +80,7 @@ export default function App() {
         <ImageModal
           isOpen={!!selectedImage}
           onRequestClose={closeModal}
-          imaege={selectedImage}
+          image={selectedImage}
         />
       )}
     </div>
